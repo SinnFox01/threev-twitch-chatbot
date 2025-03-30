@@ -1,0 +1,27 @@
+{
+    "name": "threevs_chat_bot",
+    "version": "1.0.0",
+    "description": "A chat bot for twitch that has all sorts of commands and toggles.",
+    "main": "dist/index.js",
+    "scripts": {
+        "test": "test",
+        "build": "tsc",
+        "start": "node dist/index.js",
+        "dev": "nodemon dist/index.js",
+        "dev:ts": "nodemon --exec ts-node src/index.ts"
+    },
+    "author": "Threev",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "^16.4.7",
+        "nodemon": "^3.1.9",
+        "ts-node": "^10.9.2",
+        "ws": "^8.18.1"
+    },
+    "devDependencies": {
+        "@types/node": "^22.13.14",
+        "@types/ws": "^8.18.0",
+        "tslib": "^2.8.1",
+        "typescript": "^5.8.2"
+    }
+}
