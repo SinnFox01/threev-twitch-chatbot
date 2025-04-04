@@ -6,7 +6,7 @@ A chat bot for twitch that has all sorts of commands and toggles.
 
 ### Commands
 
-- [] !help - Lists all commands
+- [x] !help - Lists all commands
 - [x] !github - Gives github URL
 - [x] !raid - Gives the non sub raid message
 - [x] !sussy [username] - Shows how sussy a person is
@@ -22,12 +22,14 @@ A chat bot for twitch that has all sorts of commands and toggles.
 
 ### Auto-Stuff
 
+- [x] Automatically shout out incoming raiders
 - [] Automatically ban people that want to do the free viewers message
 - [] Automatically ban people that say "I followed on twitter follow back"
 - [] Automatically reply to people who have "I am, I'm" in their message
 
 ## To Do
 
-- [] Separate in different functions
-- [] Separate in different files
+- [x] Separate in different functions
+- [x] Separate in different files
 - [] Handle user data
+- [] Deploy

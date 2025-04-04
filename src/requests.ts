@@ -116,3 +116,25 @@ export async function sendChatMessage(chatMessage: string) {
         console.log("Sent chat message: " + chatMessage);
     }
 }
+
+export async function banUser(user_id: string) {
+    let response = await fetch("https://api.twitch.tv/helix/moderation/bans", {
+        method: "POST",
+        headers: {
+            Authorization: "Bearer " + OAUTH_TOKEN,
+            "Client-Id": CLIENT_ID,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            broadcaster_id: USER_ID,
+            moderator_id: USER_ID,
+            user_id,
+        }),
+    });
+
+    if (response.status != 200) {
+        let data = await response.json();
+        console.error("Failed to send chat message");
+        console.error(data);
+    }
+}
