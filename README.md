@@ -2,6 +2,8 @@
 
 A chat bot for twitch that has all sorts of commands and toggles.
 
+## For anyone who wants to use this for themselves go to `/src/constants.ts`
+
 ## Bot Features
 
 ### Commands
@@ -23,9 +25,9 @@ A chat bot for twitch that has all sorts of commands and toggles.
 ### Auto-Stuff
 
 - [x] Automatically shout out incoming raiders
-- [] Automatically ban people that want to do the free viewers message
-- [] Automatically ban people that say "I followed on twitter follow back"
-- [] Automatically reply to people who have "I am, I'm" in their message
+- [x] Automatically reply to people who have "I am, I'm, Im, i am, i'm, im" in their message
+- [x] Automatically ban people that want to do the free viewers message
+- [x] Automatically ban people that say "I followed on twitter follow back"
 
 ## To Do
 

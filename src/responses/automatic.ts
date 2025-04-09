@@ -1,4 +1,9 @@
 import { banUser, sendChatMessage, sendShoutOut } from "../requests";
+import {
+    STREAMER_USERNAME,
+    STREAMER_NAME,
+    BANNABLE_SENTENCES,
+} from "../constants";
 
 export async function handleRaids(raiderUserName: any) {
     await sendChatMessage(`!so ${raiderUserName}`);
@@ -6,21 +11,33 @@ export async function handleRaids(raiderUserName: any) {
 }
 
 export async function handleDadJokes(user_messager: string, message: string) {
-    if (user_messager.toLowerCase() !== "threevprime") {
-        if (message.includes("I am")) {
-            let index = message.indexOf("I am");
-            let reply = message.substring(index + 4, message.length);
-            await sendChatMessage(`Hi ${reply}. I'm Threev.`);
+    if (user_messager.toLowerCase() !== STREAMER_USERNAME) {
+        // Capital letters
+        let capitalIAmArray = ["I am", "Im", "I'm"];
+        for (let iAm of capitalIAmArray) {
+            if (message.includes(iAm)) {
+                let index = message.indexOf(iAm);
+                let reply = message.substring(
+                    index + iAm.length,
+                    message.length,
+                );
+                await sendChatMessage(`Hi ${reply}. I'm ${STREAMER_NAME}.`);
+            }
         }
-        if (message.includes("Im")) {
-            let index = message.indexOf("Im");
-            let reply = message.substring(index + 2, message.length);
-            await sendChatMessage(`Hi ${reply}. I'm Threev.`);
-        }
-        if (message.includes("I'm")) {
-            let index = message.indexOf("I'm");
-            let reply = message.substring(index + 3, message.length);
-            await sendChatMessage(`Hi ${reply}. I'm Threev.`);
+
+        // Non Capital letters
+        let iAmArray = ["i am", "im", "i'm"];
+        for (let iAm of iAmArray) {
+            if (message.includes(iAm)) {
+                let index = message.indexOf(iAm);
+                if (index === 0 || message[index - 1] === " ") {
+                    let reply = message.substring(
+                        index + iAm.length,
+                        message.length,
+                    );
+                    await sendChatMessage(`Hi ${reply}. I'm ${STREAMER_NAME}.`);
+                }
+            }
         }
     }
 }
@@ -30,11 +47,10 @@ export async function handleAutoBans(
     user_id: string,
     message: string,
 ) {
-    if (
-        message.toLowerCase() ===
-        "I followed on tiwtter follow back and stuff sadflkjasdlkfjksdalfjkasldjfksadjkfsdafhksladfj"
-    ) {
-        banUser(user_id);
-        sendChatMessage(`${user_messager} has been banned!`);
+    for (const bannableSentence of BANNABLE_SENTENCES) {
+        if (message.includes(bannableSentence)) {
+            banUser(user_id);
+            sendChatMessage(`${user_messager} has been banned!`);
+        }
     }
 }
