@@ -1,6 +1,6 @@
 # Threev's chat bot
 
-A chat bot for twitch that has all sorts of commands and toggles.
+A chat bot for twitch that has all sorts of commands and toggles. SQLite is used for storing user data.
 
 ## For anyone who wants to use this for themselves go to `/src/constants.ts`
 
@@ -17,10 +17,10 @@ A chat bot for twitch that has all sorts of commands and toggles.
 
 ### Redeems
 
-- [] First - redeem for the first viewer of the stream (also has a counter)
-- [] Second - redeem for the second viewer of the stream (also has a counter)
-- [] Third - redeem for the third viewer of the stream (also has a counter)
-- [] Daily - redeem for the daily viewer of the stream (also has a counter)
+- [x] First - redeem for the first viewer of the stream (also has a counter)
+- [x] Second - redeem for the second viewer of the stream (also has a counter)
+- [x] Third - redeem for the third viewer of the stream (also has a counter)
+- [x] Daily - redeem for the daily viewer of the stream (also has a counter)
 
 ### Auto-Stuff
 
@@ -33,5 +33,5 @@ A chat bot for twitch that has all sorts of commands and toggles.
 
 - [x] Separate in different functions
 - [x] Separate in different files
-- [] Handle user data
+- [x] Handle user data
 - [] Deploy
